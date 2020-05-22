@@ -428,7 +428,7 @@ int main(int argc, char **argv)
     // 回环检测和全局位姿图优化在新增的一个ROS节点中运行
     // measurement_process线程的线程函数是process()，在process()中处理VIO后端，包括IMU预积分、松耦合初始化和local BA
     std::thread measurement_process{process}; 
-    ros::spin();
+    ros::spin();//调用节点订阅的所有回调函数来处理接收到的数据
 
     return 0;
 }
